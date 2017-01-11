@@ -1,0 +1,25 @@
+{%extends "restaurant/header.html"%}
+
+{% block content %}
+
+<div class="jumbotron">
+    <p>Welcome to the Food Map!</p>
+	<p><a href='/add/'>Add New Restaurant</a></p>
+</div>
+
+<div class="container-fluid" id='restaurant-wrapper'>
+    {% for r in restaurants %} 
+         <div class='col-lg-12 restaurant-nodule jumbotron'>
+            <p>Name: <span class='name'>{{ r.name }}</span></p>
+    		<p>Phone: <span class='phone'>{{ r.phone_number }}</span></p>
+            <p>Address: <span class='address'>{{ r.address }}</span></p>
+            <p>Open Time: <span class='opentime'>{{ r.opentime }}</span></p>
+            <p><a href="/menu/{{r.id}}">See the menu</a></p>
+            <p><a href="/comment/{{r.id}}">comment</a></p>
+
+            <p><a href='/restaurant/{{ restaurant.identifier }}'>Find me.</a></p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
